@@ -7,20 +7,20 @@ public class Jogo {
     private String categoria;
     private double avaliacao;
     private double preco;
-    private boolean desconto;
+    private double valorDesconto;
 
-    public Jogo(int id, String nome, String dataPublicacao, String categoria, double avaliacao, double preco, boolean desconto) {
+    public Jogo(int id, String nome, String dataPublicacao, String categoria, double avaliacao, double preco, double valorDesconto) {
         this.id = id;
         this.nome = nome;
         this.dataPublicacao = dataPublicacao;
         this.categoria = categoria;
         this.avaliacao = avaliacao;
         this.preco = preco;
-        this.desconto = desconto;
+        this.valorDesconto = valorDesconto;
     }
 
     public Jogo() {
-        this(0, "", "", "", 0.0, 0.0, false);
+        this(0, "", "", "", 0.0, 0.0, 0.0);
     }
 
     public int getId() {
@@ -71,12 +71,12 @@ public class Jogo {
         this.preco = preco;
     }
 
-    public boolean isDesconto() {
-        return desconto;
+    public double getValorDesconto() {
+        return valorDesconto;
     }
 
-    public void setDesconto(boolean desconto) {
-        this.desconto = desconto;
+    public void setValorDesconto(double valorDesconto) {
+        this.valorDesconto = valorDesconto;
     }
 
 }
