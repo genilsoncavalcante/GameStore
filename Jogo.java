@@ -1,6 +1,7 @@
 package org.example;
 
 public class Jogo {
+    private int id;
     private String nome;
     private String dataPublicacao;
     private String categoria;
@@ -8,7 +9,8 @@ public class Jogo {
     private double preco;
     private boolean desconto;
 
-    public Jogo(String nome, String dataPublicacao, String categoria, double avaliacao, double preco, boolean desconto) {
+    public Jogo(int id, String nome, String dataPublicacao, String categoria, double avaliacao, double preco, boolean desconto) {
+        this.id = id;
         this.nome = nome;
         this.dataPublicacao = dataPublicacao;
         this.categoria = categoria;
@@ -18,7 +20,15 @@ public class Jogo {
     }
 
     public Jogo() {
-        this("", "", "", 0.0, 0.0, false);
+        this(0, "", "", "", 0.0, 0.0, false);
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getCategoria() {
