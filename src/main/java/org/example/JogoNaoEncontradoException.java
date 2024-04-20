@@ -3,6 +3,6 @@ package org.example;
 public class JogoNaoEncontradoException extends Exception {
 
     public JogoNaoEncontradoException(String gameNotFound) {
-        //TODO
+        super(gameNotFound)
     }
 }
