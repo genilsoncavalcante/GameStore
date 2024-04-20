@@ -1,13 +1,20 @@
-package org.example;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class JogoList implements GameStoreInterface {
+public class JogoList implements GameStore {
 
     private List<Jogo> jogos;
+    GravadorJogos gravador = new GravadorJogos();
 
     public JogoList() {
-        this.jogos = new ArrayList<Jogo>();
+        try {
+            this.jogos = gravador.lerJogos();
+        }catch (IOException e){
+            System.err.println(e.getMessage());
+            this.jogos = new ArrayList<Jogo>();
+        }
     }
 
     @Override
@@ -18,6 +25,8 @@ public class JogoList implements GameStoreInterface {
         } catch (Exception e) {
             return false;
         }
+
+
     }
 
     @Override
@@ -75,4 +84,14 @@ public class JogoList implements GameStoreInterface {
         }
         return jogos_gratuitos;
     }
+    public void SalvarCadastros(List<Jogo> jogos){
+        try {
+            this.gravador.gravarJogo(this.jogos);
+        }catch (IOException e){
+            System.err.println(e.getMessage());
+        }
+
+    }
+
 }
+
