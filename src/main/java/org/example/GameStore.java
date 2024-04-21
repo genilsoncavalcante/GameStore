@@ -2,7 +2,7 @@ package org.example;
 
 import java.util.List;
 
-public interface GameStoreInterface {
+public interface GameStore {
 
     public boolean cadastrarJogo(Jogo jogo);
     public boolean apagarJogoCadastrado(int id);

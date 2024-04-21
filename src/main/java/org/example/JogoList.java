@@ -1,3 +1,4 @@
+package org.example;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -25,8 +26,6 @@ public class JogoList implements GameStore {
         } catch (Exception e) {
             return false;
         }
-
-
     }
 
     @Override
@@ -84,6 +83,7 @@ public class JogoList implements GameStore {
         }
         return jogos_gratuitos;
     }
+
     public void SalvarCadastros(List<Jogo> jogos){
         try {
             this.gravador.gravarJogo(this.jogos);

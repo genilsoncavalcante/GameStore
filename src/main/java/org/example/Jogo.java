@@ -1,6 +1,6 @@
 package org.example;
 
-public class Jogo implements Serializable{
+public class Jogo {
     private int id;
     private String nome;
     private String dataPublicacao;
