@@ -16,11 +16,11 @@ public class GravadorJogos {
             throw new IOException("Classe do objeto gravado no arquivo não encontrada");
         } catch (IOException e) {
             System.err.println("IOexeption em GravadorJogos");
+            throw e;
         } finally {
             if (in != null) {
                 in.close();
             }
-            return new ArrayList<Jogo>;
         }
     }
 
