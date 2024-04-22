@@ -19,9 +19,13 @@ public class JogoList implements GameStore {
     }
 
     @Override
-    public boolean cadastrarJogo(Jogo jogo) {
+    public boolean cadastrarJogo(String nome, String dataPublicacao, String categoria, double avaliacao, double preco, double valorDesconto) {
+
+        int id = this.getJogos().size();
+        Jogo newGame = new Jogo(id, nome, dataPublicacao, categoria, avaliacao, preco, valorDesconto);
+
         try {
-            this.jogos.add(jogo);
+            this.jogos.add(newGame);
             return true;
         } catch (Exception e) {
             return false;

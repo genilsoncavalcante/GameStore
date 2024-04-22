@@ -1,6 +1,7 @@
 package org.example;
+import java.io.Serializable;
 
-public class Jogo implements Serializable{
+public class Jogo implements Serializable {
     private int id;
     private String nome;
     private String dataPublicacao;
