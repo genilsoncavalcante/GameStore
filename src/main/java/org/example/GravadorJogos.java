@@ -20,7 +20,7 @@ public class GravadorJogos {
             if (in != null) {
                 in.close();
             }
-            return null;
+            return new ArrayList<Jogo>;
         }
     }
 
