@@ -12,7 +12,7 @@ public class JogoList implements GameStore {
     public JogoList() {
         try {
             this.jogos = gravador.lerJogos();
-        }catch (IOException e){
+        }catch (Exception e){
             System.err.println(e.getMessage());
             this.jogos = new ArrayList<Jogo>();
         }
