@@ -7,7 +7,7 @@ public class TestaJogo {
     public static void main(String[] args) {
         JogoList menugame = new JogoList();
         while (true) {
-            try {
+
 
 
                 int opcao = Integer.parseInt(JOptionPane.showInputDialog("Bem-vindo à GameStore, sua loja de games favorita! Escolha uma opção e divirta-se em nossa loja!\n"
@@ -52,9 +52,7 @@ public class TestaJogo {
                     default:
                         JOptionPane.showMessageDialog(null, "Opção inválida. Por favor, escolha uma opção válida.");
                 }
-                }catch(NumberFormatException e){
-                JOptionPane.showMessageDialog(null, "Por favor, digite um número válido.");
-            }
+
         }
         }
     }
