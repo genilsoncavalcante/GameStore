@@ -1,6 +1,7 @@
 package org.example;
 
 import javax.swing.*;
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 
 public class TestaJogo {
@@ -9,21 +10,21 @@ public class TestaJogo {
 
         ArrayList<JogoList> listagamestore = new ArrayList<>();
         JogoList menugame = new JogoList();
-        listagamestore.add(menugame); // Adiciona o menugame à lista
+        listagamestore.add(menugame);
 
         while (true) {
 
             try {
 
-                int opcao = Integer.parseInt(JOptionPane.showInputDialog("Bem-vindo à GameStore, sua loja de games favorita! Escolha uma opção e divirta-se em nossa loja!\n"
-                        + "1. Cadastrar jogo\n"
-                        + "2. Apagar jogo\n"
-                        + "3. Pesquisar jogo por nome\n"
-                        + "4. Pesquisar jogos por categoria\n"
-                        + "5. Pesquisar jogos em promoção\n"
-                        + "6. Pesquisar jogos gratuitos\n"
-                        + "7. Ver todos os jogos\n"
-                        + "8. Sair"));
+                int opcao = Integer.parseInt(JOptionPane.showInputDialog("Bem-vindo à GameStore, sua loja de games favorita! Escolha uma opção e divirta-se em nossa loja! \uD83D\uDC68\u200D\uD83C\uDFFB\u2694\n"
+                        + "1. Cadastrar jogo \uD83D\uDCBE\n"
+                        + "2. Apagar jogo \uD83D\uDDD1️\n"
+                        + "3. Pesquisar jogo por nome \uD83D\uDCDD\n" //
+                        + "4. Pesquisar jogos por categoria \uD83D\uDCDD\n"
+                        + "5. Pesquisar jogos em promoção \uD83D\uDCC6\n"
+                        + "6. Pesquisar jogos gratuitos \uD83C\uDF81\n"
+                        + "7. Ver todos os jogos \uD83D\uDCD6\n"
+                        + "8. Sair \uD83D\uDEA9"));
 
                 switch (opcao) {
                     case 1:
@@ -41,14 +42,37 @@ public class TestaJogo {
                         break;
 
                     case 2:
+                        int apagarpeloid = Integer.parseInt(JOptionPane.showInputDialog("digite aqui o id do jogo que voce deseja excluir"));
+                        JOptionPane.showMessageDialog(null, "aguardando... se nao icinializar sozinho aprte ok");
+                        boolean certeza = Boolean.parseBoolean(JOptionPane.showInputDialog("tem certeza? digite true para sim!, e false para nao!:"));
+                        if (certeza == true) {
+                            boolean jogoencontrado = false;
+                            for (JogoList jogoList : listagamestore) {
+                                for (Jogo jogo : menugame.getJogos()) {
+                                    if (jogo.getId() == apagarpeloid) {
 
+                                        jogoList.apagarJogoCadastrado(apagarpeloid);
+                                        JOptionPane.showMessageDialog(null, "Jogo" + jogo + " apagado com sucesso!");
+                                        jogoencontrado = true;
+                                        break;
+                                    }
+                                }
+                                if (jogoencontrado) {
+                                    break;
+                                }
+                            }
+                            if (!jogoencontrado) {
+                                JOptionPane.showMessageDialog(null, "jogo com id:" + apagarpeloid + "nao encontrado");
+                            }
+                        } else if (!certeza) {
+                            JOptionPane.showMessageDialog(null, "operacao cancelada");
+                        }
                         break;
-
                     case 3:
                         String nomedojogo = JOptionPane.showInputDialog("Digite aqui o nome completo do jogo");
                         boolean encontrado = false;
-                        for (JogoList listagaemstore : listagamestore) {
-                            for (Jogo jogo : listagaemstore.getJogos()) {
+                        for (JogoList jogoList : listagamestore) {
+                            for (Jogo jogo : jogoList.getJogos()) {
                                 if (jogo.getNome().equalsIgnoreCase(nomedojogo)) {
                                     JOptionPane.showMessageDialog(null, jogo);
                                     encontrado = true;
@@ -65,22 +89,80 @@ public class TestaJogo {
                         break;
 
                     case 4:
+                        String categoriaa = JOptionPane.showInputDialog("digite aqui a categoria do seu jogo para encontra-lo");
+                        for (JogoList jogoList : listagamestore) {
+                            for (Jogo jogo : jogoList.getJogos()) {
+                                if (jogo.getCategoria().equalsIgnoreCase(categoriaa)) {
+                                    jogoList.pesquisarJogosPorCategoria(categoriaa);
+                                    JOptionPane.showMessageDialog(null, "encontrado!");
+                                    JOptionPane.showMessageDialog(null, jogo);
+                                } else {
+                                    JOptionPane.showMessageDialog(null, " nao foi possivel encontrar");
+
+                                }
+                            }
+                        }
 
                         break;
 
                     case 5:
 
+                        for (JogoList jogoList : listagamestore) {
+                            for (Jogo jogo : jogoList.getJogos()) {
+                                if (jogoList.pesquisarJogosEmPromocao()!=null) {
+                                    jogoList.pesquisarJogosEmPromocao();
+                                    JOptionPane.showMessageDialog(null, "jogo em promocao encontrado! "+  jogoList.pesquisarJogosEmPromocao());
+
+
+                                }else{
+                                    JOptionPane.showMessageDialog(null, " nao foi possivel encontrar jogo em promocao");
+                                }
+                            }
+
+
+
+                    }
                         break;
 
                     case 6:
+
+                        for (JogoList jogoList : listagamestore) {
+                            for (Jogo jogo : jogoList.getJogos()) {
+                                if (jogoList.pesquisarJogosGratuitos()!=null) {
+                                    jogoList.pesquisarJogosEmPromocao();
+                                    JOptionPane.showMessageDialog(null, "jogo em promocao encontrado! "+ jogoList.pesquisarJogosGratuitos() );
+
+
+                                }else{
+                                    JOptionPane.showMessageDialog(null, " nao foi possivel encontrar jogo  gratuito");
+                                }
+                            }
+
+
+
+                        }
                         break;
 
                     case 7:
+                        for (JogoList jogoList : listagamestore) {
+                            for (Jogo jogo : jogoList.getJogos()) {
+                                if (jogoList.getJogos()!=null) {
+                                    JOptionPane.showMessageDialog(null, "jogo ou jogos encontrado! "+ jogoList. getJogos() );
+
+
+                                }else{
+                                    JOptionPane.showMessageDialog(null, " nao foi possivel nennhum jogo");
+                                }
+                            }
+
+
+
+                        }
 
                         break;
 
                     case 8:
-                        JOptionPane.showMessageDialog(null, "Obrigado por usar a GameStore!");
+                        JOptionPane.showMessageDialog(null, "Obrigado por usar a GameStore! \uD83D\uDEA9"); // Adicionando emoji de agradecimento
                         System.exit(0);
                         break;
 
