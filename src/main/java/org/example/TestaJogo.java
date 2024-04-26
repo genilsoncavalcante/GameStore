@@ -144,19 +144,16 @@ public class TestaJogo {
                         break;
 
                     case 7:
+                        StringBuffer listadejogos = new StringBuffer();
                         for (JogoList jogoList : listagamestore) {
                             for (Jogo jogo : jogoList.getJogos()) {
-                                if (jogoList.getJogos()!=null) {
-                                    JOptionPane.showMessageDialog(null, "jogo ou jogos encontrado! "+ jogoList. getJogos() );
-
-
-                                }else{
-                                    JOptionPane.showMessageDialog(null, " nao foi possivel nennhum jogo");
-                                }
+                                listadejogos.append(jogo).append("\n");
                             }
-
-
-
+                        }
+                            if (listadejogos.length() > 0) {
+                                JOptionPane.showMessageDialog(null, "Lista de jogos:\n" + listadejogos.toString());
+                            } else {
+                                JOptionPane.showMessageDialog(null, "Nenhum jogo encontrado.");
                         }
 
                         break;
