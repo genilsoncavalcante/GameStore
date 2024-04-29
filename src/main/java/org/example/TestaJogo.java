@@ -50,7 +50,6 @@ public class TestaJogo {
                             for (JogoList jogoList : listagamestore) {
                                 for (Jogo jogo : menugame.getJogos()) {
                                     if (jogo.getId() == apagarpeloid) {
-
                                         jogoList.apagarJogoCadastrado(apagarpeloid);
                                         JOptionPane.showMessageDialog(null, "Jogo" + jogo + " apagado com sucesso!");
                                         jogoencontrado = true;
@@ -98,7 +97,6 @@ public class TestaJogo {
                                     JOptionPane.showMessageDialog(null, jogo);
                                 } else {
                                     JOptionPane.showMessageDialog(null, " nao foi possivel encontrar");
-
                                 }
                             }
                         }
@@ -118,9 +116,6 @@ public class TestaJogo {
                                     JOptionPane.showMessageDialog(null, " nao foi possivel encontrar jogo em promocao");
                                 }
                             }
-
-
-
                     }
                         break;
 
@@ -131,15 +126,10 @@ public class TestaJogo {
                                 if (jogoList.pesquisarJogosGratuitos()!=null) {
                                     jogoList.pesquisarJogosEmPromocao();
                                     JOptionPane.showMessageDialog(null, "jogo em promocao encontrado! "+ jogoList.pesquisarJogosGratuitos() );
-
-
                                 }else{
                                     JOptionPane.showMessageDialog(null, " nao foi possivel encontrar jogo  gratuito");
                                 }
                             }
-
-
-
                         }
                         break;
 
@@ -160,6 +150,7 @@ public class TestaJogo {
 
                     case 8:
                         JOptionPane.showMessageDialog(null, "Obrigado por usar a GameStore! \uD83D\uDEA9"); // Adicionando emoji de agradecimento
+                        menugame.salvarCadastros(listagamestore);
                         System.exit(0);
                         break;
 

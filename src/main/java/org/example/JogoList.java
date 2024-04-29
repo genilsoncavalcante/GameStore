@@ -88,7 +88,7 @@ public class JogoList implements GameStore {
         return jogos_gratuitos;
     }
 
-    public void salvarCadastros(List<Jogo> jogos){
+    public void salvarCadastros(ArrayList<JogoList> jogos){
         try {
             this.gravador.gravarJogo(this.jogos);
         }catch (IOException e){
