@@ -104,33 +104,29 @@ public class TestaJogo {
                         break;
 
                     case 5:
-
-                        for (JogoList jogoList : listagamestore) {
-                            for (Jogo jogo : jogoList.getJogos()) {
-                                if (jogoList.pesquisarJogosEmPromocao()!=null) {
-                                    jogoList.pesquisarJogosEmPromocao();
-                                    JOptionPane.showMessageDialog(null, "jogo em promocao encontrado! "+  jogoList.pesquisarJogosEmPromocao());
-
-
-                                }else{
-                                    JOptionPane.showMessageDialog(null, " nao foi possivel encontrar jogo em promocao");
-                                }
+                        if (menugame.pesquisarJogosEmPromocao()!=null) {
+                            String formatadaJogosPromocao = "";
+                            for (Jogo c: menugame.pesquisarJogosEmPromocao()){
+                                formatadaJogosPromocao += c +"\n";
                             }
-                    }
+                            JOptionPane.showMessageDialog(null, "jogo em promocao encontrado! \n"+ formatadaJogosPromocao);
+                        }else{
+                            JOptionPane.showMessageDialog(null, " nao foi possivel encontrar jogo  gratuito");
+                        }
                         break;
 
                     case 6:
-
-                        for (JogoList jogoList : listagamestore) {
-                            for (Jogo jogo : jogoList.getJogos()) {
-                                if (jogoList.pesquisarJogosGratuitos()!=null) {
-                                    jogoList.pesquisarJogosEmPromocao();
-                                    JOptionPane.showMessageDialog(null, "jogo em promocao encontrado! "+ jogoList.pesquisarJogosGratuitos() );
+                              if (menugame.pesquisarJogosGratuitos()!=null) {
+                                  String formatada = "";
+                                  for (Jogo c: menugame.pesquisarJogosGratuitos()){
+                                      formatada += c +"\n";
+                                  }
+                                    JOptionPane.showMessageDialog(null, "jogo em promocao encontrado! \n"+ formatada );
                                 }else{
                                     JOptionPane.showMessageDialog(null, " nao foi possivel encontrar jogo  gratuito");
                                 }
-                            }
-                        }
+
+
                         break;
 
                     case 7:
