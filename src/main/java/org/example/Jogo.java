@@ -1,5 +1,6 @@
 package org.example;
 import java.io.Serializable;
+import java.util.Objects;
 
 public class Jogo implements Serializable {
     private int id;
@@ -91,5 +92,18 @@ public class Jogo implements Serializable {
                 ", preco=" + this.preco +
                 ", valorDesconto=" + this.valorDesconto +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Jogo jogo = (Jogo) o;
+        return id == jogo.id && Double.compare(avaliacao, jogo.avaliacao) == 0 && Double.compare(preco, jogo.preco) == 0 && Double.compare(valorDesconto, jogo.valorDesconto) == 0 && Objects.equals(nome, jogo.nome) && Objects.equals(dataPublicacao, jogo.dataPublicacao) && Objects.equals(categoria, jogo.categoria);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, nome, dataPublicacao, categoria, avaliacao, preco, valorDesconto);
     }
 }
