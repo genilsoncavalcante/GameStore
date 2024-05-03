@@ -89,17 +89,24 @@ public class TestaJogo {
 
                     case 4:
                         String categoriaa = JOptionPane.showInputDialog("digite aqui a categoria do seu jogo para encontra-lo");
+                        boolean encontado = false;
                         for (JogoList jogoList : listagamestore) {
                             for (Jogo jogo : jogoList.getJogos()) {
                                 if (jogo.getCategoria().equalsIgnoreCase(categoriaa)) {
                                     jogoList.pesquisarJogosPorCategoria(categoriaa);
                                     JOptionPane.showMessageDialog(null, "encontrado!");
                                     JOptionPane.showMessageDialog(null, jogo);
-                                } else {
-                                    JOptionPane.showMessageDialog(null, " nao foi possivel encontrar");
+                                    encontrado = true;
                                 }
                             }
                         }
+                        if (!encontado){
+                            JOptionPane.showMessageDialog(null,"nenhum jogo encontrado");
+                    }else{
+
+                                JOptionPane.showMessageDialog(null, " nao foi possivel encontrar");
+                            }
+
 
                         break;
 
@@ -111,7 +118,7 @@ public class TestaJogo {
                             }
                             JOptionPane.showMessageDialog(null, "jogo em promocao encontrado! \n"+ formatadaJogosPromocao);
                         }else{
-                            JOptionPane.showMessageDialog(null, " nao foi possivel encontrar jogo  gratuito");
+                            JOptionPane.showMessageDialog(null, " nao foi possivel encontrar jogo em promocao");
                         }
                         break;
 
@@ -121,7 +128,7 @@ public class TestaJogo {
                                   for (Jogo c: menugame.pesquisarJogosGratuitos()){
                                       formatada += c +"\n";
                                   }
-                                    JOptionPane.showMessageDialog(null, "jogo em promocao encontrado! \n"+ formatada );
+                                    JOptionPane.showMessageDialog(null, "jogo gratuito encontrado! \n"+ formatada );
                                 }else{
                                     JOptionPane.showMessageDialog(null, " nao foi possivel encontrar jogo  gratuito");
                                 }
